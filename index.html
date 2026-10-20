@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vending — Cold Drinks, Exact Change</title>
+<meta name="description" content="A bright retro vending machine with coins, stock, keypad purchases, change and a live sales tape.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="station">
+  <main class="machine">
+    <header class="machine-head">
+      <div class="head-copy">
+        <span class="kana">つめたい</span>
+        <h1>Cold<br>Drinks</h1>
+      </div>
+      <div class="head-badge">
+        <span>24H</span>
+        <strong>Vending</strong>
+        <small>Exact change · Chilled daily</small>
+      </div>
+      <div class="head-lights"><i></i><i></i><i></i></div>
+    </header>
+
+    <div class="machine-body">
+      <section class="window" aria-label="Drink selection">
+        <div class="window-glare"></div>
+        <div class="shelf-tags" aria-hidden="true"><span>A</span><span>B</span><span>C</span></div>
+        <div id="product-grid" class="product-grid"></div>
+        <div class="window-strip">
+          <span>ICE COLD</span>
+          <span>12 selections</span>
+          <span>¥120–¥180</span>
+        </div>
+      </section>
+
+      <aside class="controls">
+        <div class="led-panel">
+          <span>Credit</span>
+          <strong id="credit">¥0</strong>
+          <small id="status">Insert a coin to begin</small>
+        </div>
+
+        <div class="coin-bank" aria-label="Coin slot">
+          <p>Insert coins</p>
+          <div class="coin-row">
+            <button class="coin" type="button" data-coin="10"><span>10</span></button>
+            <button class="coin" type="button" data-coin="50"><span>50</span></button>
+            <button class="coin" type="button" data-coin="100"><span>100</span></button>
+            <button class="coin" type="button" data-coin="500"><span>500</span></button>
+          </div>
+        </div>
+
+        <div class="keypad-wrap">
+          <p>Choose a code</p>
+          <div id="keypad" class="keypad"></div>
+        </div>
+
+        <button id="change" class="change-button" type="button">Return change</button>
+        <button id="restock" class="restock-button" type="button">Restock mode</button>
+        <button id="reset" class="reset-button" type="button">Reset machine</button>
+      </aside>
+    </div>
+
+    <footer class="lower-deck">
+      <div class="dispenser">
+        <div class="dispenser-label"><span>Push</span><strong>Collection</strong></div>
+        <div class="tray" id="tray">
+          <p>Your drink lands here.</p>
+        </div>
+      </div>
+
+      <section class="sales-tape">
+        <div class="tape-head">
+          <h2>Sales tape</h2>
+          <span id="sales-total">¥0 today</span>
+        </div>
+        <ol id="sales" class="sales-list"></ol>
+        <div class="tape-foot">
+          <span id="cans-sold">0 cans sold</span>
+          <button id="print" type="button">Print tape</button>
+        </div>
+      </section>
+    </footer>
+  </main>
+
+  <p class="floor-note">Station 04 · West Concourse · Please do not shake the machine.</p>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
