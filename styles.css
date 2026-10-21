@@ -588,3 +588,23 @@ h1 {
     transition-duration: 0.001ms !important;
   }
 }
+
+@media print {
+  body * { visibility: hidden; }
+  .sales-tape, .sales-tape * { visibility: visible; }
+  .sales-tape {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20mm;
+    background: white;
+    box-shadow: none;
+    border: 2px solid var(--ink);
+  }
+  .sales-tape::after { display: none; }
+  .tape-foot button { display: none; }
+  .sales-list { max-height: none; }
+  .station { border: none; box-shadow: none; }
+  .machine { border: none; box-shadow: none; }
+}
